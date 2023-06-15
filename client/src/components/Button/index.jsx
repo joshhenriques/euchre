@@ -4,28 +4,32 @@ import { SocketContext } from "../../context/SocketContext";
 
 
 const Button = ({name,type}) => {
-
-    function onEnter(e) {
-        e.target.style.width = '275px';
-        e.target.style.height = '88px';        
-    }
-
-    function onLeave(e) {
-        e.target.style.width = '250px';
-        e.target.style.height = '80px';
-        
-    }
-
+    
     const {socket, navigate} = useContext(SocketContext);
 
     const handleChange = (type) => {
+        
+        //console.log(type)
+
+        if(type === "guest"){
+            navigate("/play");
+        } else if(type === "login"){
+            navigate("/login");
+        } else if(type === "register"){ //When u click register from home
+            navigate("/register");
+        } else if(type === "confirmRegister"){ //When u register an account
+            navigate("/login");
+        } else if(type === "confirmLogin"){
+            navigate("/play");
+        }
+        
         socket.emit("room:create", { type }, (err, roomId) => {
             navigate(`/room/${roomId}`);
         })
     }
 
     return(
-        <button className={styles.btn} onMouseOver={onEnter} onMouseLeave={onLeave} onClick={() => handleChange(type)}>
+        <button className={styles.button} onClick={() => handleChange(type)}>
             {name}
             
         </button>

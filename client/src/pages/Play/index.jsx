@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import Button from "../../components/Button"
 import titleImage from "../../images/euchre.png"
 
-const Home = () => {
+const Play = () => {
     return(
         <>
         
@@ -13,13 +13,10 @@ const Home = () => {
         </div>
         <div className={styles.btn_row}>
             <div className= {styles.btn_container}>
-                <Button name="Play as Guest" type = "guest"/>
+                <Button name="Play with Friends" type = "friends"/>
             </div>
             <div className= {styles.btn_container}>
-                <Button name="Login" type = "login"/>
-            </div>
-            <div className= {styles.btn_container}>
-                <Button name="Register" type = "register"/>
+                <Button name="Play with Strangers" type = "stranger"/>
             </div>
         </div>
         
@@ -27,4 +24,4 @@ const Home = () => {
     )
 };
 
-export default Home;
+export default Play;
