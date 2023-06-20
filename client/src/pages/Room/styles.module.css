@@ -1,0 +1,7 @@
+.main{
+    background-color: rgb(63, 162, 255);
+    height: inherit;
+    width: inherit;
+    z-index: 3;
+    border-radius: 50px;
+}

@@ -2,7 +2,8 @@ const dotenv = require("dotenv");
 const express = require("express");
 const{ createServer } = require("http");
 const { Server } = require("socket.io");
-//const roomHandler = require("./roomHandler");
+const roomHandler = require("./roomHandler");
+const { type } = require("os");
 
 dotenv.config();
 const app = express();
@@ -16,7 +17,8 @@ const rooms = [];
 
 io.on("connection", (socket) => {
     console.log("connected", socket.id);
-
+    console.log("type", );
+    roomHandler(io, socket, rooms);
 
     socket.on("disconnect", () => {
         console.log("disconnected", socket.id);

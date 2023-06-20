@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import Button from "../../components/Button"
-import titleImage from "../../images/euchre.png"
 
 const Home = () => {
     return(
@@ -8,7 +7,7 @@ const Home = () => {
         
         <div className= {styles.img_container}>
             <img
-                src={titleImage } alt="titleImage" className={styles.titleImage}
+                src={process.env.PUBLIC_URL + "/images/euchre.png"} alt="titleImage" className={styles.titleImage}
             />
         </div>
         <div className={styles.btn_row}>

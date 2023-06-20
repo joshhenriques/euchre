@@ -1,0 +1,26 @@
+.container{
+    margin-top: 55vh;
+    width: inherit;
+    height: inherit;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.cards{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+
+.cardImg{
+    width: 150px;
+    height: 200px;
+    transform-origin: bottom center;
+}
+
+.cardImg:hover{
+    width: 180px;
+    height: 230px;
+}

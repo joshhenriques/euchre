@@ -1,7 +1,6 @@
 .main {
 	width: 100vw;
 	height: 100vh;
-	background-color: aqua;
 	overflow: hidden;
 	display: flex;
 	align-items: center;
@@ -9,7 +8,7 @@
 }
 
 .background_img {
-	position: absolute;
+	position: relative;
 	left: 0;
 	top: 0;
 	width: 100%;
