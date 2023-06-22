@@ -1,5 +1,5 @@
 .container{
-    margin-top: 55vh;
+    margin-top: 125vh;
     width: inherit;
     height: inherit;
     align-self: center;
@@ -17,6 +17,7 @@
 .cardImg{
     width: 150px;
     height: 200px;
+    margin-top: 6vh;
     transform-origin: bottom center;
 }
 

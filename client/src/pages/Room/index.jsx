@@ -4,30 +4,64 @@ import React, { useState } from "react";
 import shuffleDeck from"../../gameFunctions/shuffleDeck"
 import PlayerOne from "../../components/PlayerOne";
 
-const Room = () => {
+const Room = ({deck}) => {
     var playerOneCards = "";
     var playerTwoCards = "";
     var playerThreeCards = "";
 
-    var deck = ['9c', '9d', '9h', '9s',
-            '10c', '10d', '10h', '10s',
-            'jc', 'jd', 'jh', 'js',
-            'qc', 'qd', 'qh', 'qs',
-            'kc', 'kd', 'kh', 'ks',
-            'ac', 'ad', 'ah', 'as',],
+    const [trumpCard, setTrumpCard] = useState(deck[20])
+    const [topCard, setTopCard] = useState('cardBack')
 
-    deck = shuffleDeck(deck),
+    var topVisibility = (topCard == 'cardBack') ? 'hidden' : 'visible';
 
     playerOneCards = String(deck.slice(0,5));
     playerTwoCards = String(deck.slice(5,10));
     playerThreeCards = String(deck.slice(10,15));
-    var trumpCard = deck[15];
+    playerThreeCards = String(deck.slice(15,20));
+
+    
 
     return(
 
         <>
         <div className={styles.main}>
-            <PlayerOne cards = {playerOneCards}/>
+            
+            <div className={styles.p3Container}>
+                <p>p3</p>
+            </div>
+
+            <div className={styles.middleRowContainer}>
+                <div className={styles.p2Container}>
+                    <p>p2</p>
+                </div>
+                <div className={styles.deckContainer}> 
+                    <img className={styles.topCard} 
+                        src = {process.env.PUBLIC_URL + '/images/' + topCard + '.png'} 
+                        alt= {topCard}
+                        style={{visibility: `${topVisibility}`}}/>  
+                    <img className ={styles.trumpCard}
+                        src = {process.env.PUBLIC_URL + '/images/' + trumpCard + '.png'} 
+                        alt= {trumpCard}/>    
+                </div>
+                <div className={styles.p4Container}>
+                    <p>p4</p>
+                </div> 
+            </div>
+            <div className={styles.bottomRowContainer}>
+                <div className={styles.scoreContainer}>
+                    <p>Score</p>
+                </div>
+                <div className={styles.p1Container}>
+                    <PlayerOne cards = {playerOneCards}/>
+                </div>
+                <div className={styles.scoreContainer}>
+                    <p>Controls</p>
+                </div>
+            </div>
+            
+
+            
+            
         </div>
         </>
     )
